@@ -1,8 +1,12 @@
-syntax = "proto3";
+
+option go_package = "./";
+
+import "user/user.proto";
 
 service AuthService {
     rpc Register(AuthRequest) returns (AuthResponse);
     rpc Auth(AuthRequest) returns (AuthResponse);
+    rpc GetUser(User) returns (User);
 }
 
 message AuthRequest {

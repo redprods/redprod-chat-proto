@@ -1,10 +1,13 @@
 syntax = "proto3";
 
+option go_package = "./";
+
 import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 
 service MessageService {
     rpc SendMessage(Message) returns (Message);
-    rpc GetConversations() returns (GetConversationsResponse);
+    rpc GetConversations(google.protobuf.Empty) returns (GetConversationsResponse);
 }
 
 message GetConversationsResponse {
