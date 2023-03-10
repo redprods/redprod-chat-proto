@@ -3,6 +3,8 @@ syntax = "proto3";
 option go_package = "./;_";
 
 import "user/user.proto";
+import "auth/user.proto";
+import "google/api/annotations.proto";
 
 service AuthService {
     rpc Register(AuthRequest) returns (AuthResponse);
