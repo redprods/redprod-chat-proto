@@ -3,8 +3,6 @@ syntax = "proto3";
 package auth;
 option go_package = "./;_";
 
-import "user/user.proto";
-import "auth/user.proto";
 import "google/api/annotations.proto";
 
 service AuthService {
@@ -20,4 +18,16 @@ message AuthRequest {
 
 message AuthResponse {
     string access_token = 1;
+}
+
+message GetUserRequest {
+    int32 id = 1;
+    string login = 2;
+}
+
+message User {
+    int32 id = 1;
+    string login = 2;
+    string password = 3;
+    int64 created_at = 4;
 }
