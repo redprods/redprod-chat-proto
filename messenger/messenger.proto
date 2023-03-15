@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package messenger;
 
-option go_package = "./;_";
+option go_package = "./messenger";
 
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
