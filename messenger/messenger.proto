@@ -58,7 +58,7 @@ message GetConversationsResponse {
 
 message Conversation {
     uint32 last_message_id = 1;
-    uint32 from_user_id = 2;
+    Message message = 2;
 }
 
 message Message {
