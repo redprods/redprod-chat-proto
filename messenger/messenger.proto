@@ -57,8 +57,7 @@ message GetConversationsResponse {
 }
 
 message Conversation {
-    string last_message_id = 1;
-    Message message = 2;
+    Message last_message = 1;
 }
 
 message Message {
