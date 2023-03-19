@@ -4,8 +4,18 @@ package auth;
 option go_package = "./auth";
 
 import "google/api/annotations.proto";
+import "grpc-gateway-cors/options/cors.proto";
 
 service AuthService {
+    option (grpc.gateway.cors) = {
+        allow_origin: "*";
+        allow_method: "PUT";
+        allow_method: "GET";
+        allow_method: "OPTIONS";
+        max_age: 3200;
+        allow_credentials: false,
+    };
+
     rpc Register(AuthRequest) returns (AuthResponse) {
         option (google.api.http) = {
             post : "/register"
