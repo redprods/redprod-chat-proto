@@ -7,17 +7,8 @@ option go_package = "./messenger";
 import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
-import "grpc-gateway-cors/options/cors.proto";
 
 service MessengerService {
-    option (grpc.gateway.cors) = {
-        allow_origin: "*";
-        allow_method: "PUT";
-        allow_method: "GET";
-        allow_method: "OPTIONS";
-        max_age: 3200;
-        allow_credentials: false,
-    };
     
     rpc SendMessage(Message) returns (Message) {
         option (google.api.http) = {
