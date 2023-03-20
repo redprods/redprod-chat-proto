@@ -45,8 +45,8 @@ message Event {
 
 message GetMessagesRequest {
     string user_id = 1;
-    string offset = 2;
-    string limit = 3;
+    int32 offset = 2;
+    int32 limit = 3;
 }
 
 message GetMessagesResponse {
