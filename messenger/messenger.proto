@@ -9,38 +9,25 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
 service MessengerService {
-    
     rpc SendMessage(Message) returns (Message) {
         option (google.api.http) = {
             post : "/send"
             body : "*"
         };
     };
+
     rpc GetConversations(google.protobuf.Empty) returns (GetConversationsResponse) {
         option (google.api.http) = {
             get : "/getConversations"
         };
     };
+
     rpc GetMessages(GetMessagesRequest) returns (GetMessagesResponse) {
         option (google.api.http) = {
             post : "/getMessages"
             body : "*"
         };
     };
-    rpc Notify(google.protobuf.Empty) returns (stream Event) {
-        option (google.api.http) = {
-            get : "/notify"
-        };
-    };
-}
-
-enum EventEnum {
-    MessageEvent = 0;
-}
-
-message Event {
-    string EventType = 1;
-    EventEnum event = 2;
 }
 
 message GetMessagesRequest {

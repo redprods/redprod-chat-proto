@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package messenger;
+
+option go_package = "./messenger";
+
+service Notification {
+    rpc Notify(Event) returns (Empty);
+}
+
+message Empty {}
+
+message Event {
+    string eventType = 1;
+    
+}
