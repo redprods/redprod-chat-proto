@@ -33,14 +33,16 @@ service AuthService {
         };
     };
 
-    rpc Me(Empty) returns (User) {
+    rpc Me(MeRequest) returns (User) {
         option (google.api.http) = {
             get : "/me"
         };
     };
 }
 
-message Empty {}
+message MeRequest {
+    string accessToken = 1;
+}
 
 message AuthRequest {
     string login = 1;
