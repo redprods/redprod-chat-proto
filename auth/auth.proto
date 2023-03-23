@@ -32,7 +32,15 @@ service AuthService {
             body : "*"
         };
     };
+
+    rpc Me(Empty) returns (User) {
+        option (google.api.http) = {
+            get : "/me"
+        };
+    };
 }
+
+message Empty {}
 
 message AuthRequest {
     string login = 1;
