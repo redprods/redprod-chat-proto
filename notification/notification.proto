@@ -1,16 +1,25 @@
 syntax = "proto3";
 
-package messenger;
+package notification;
 
-option go_package = "./messenger";
+option go_package = "./notification";
+
+import "google/protobuf/timestamp.proto";
 
 service Notification {
-    rpc Notify(Event) returns (Empty);
+    rpc NotifyMessage(MessageEvent) returns (Empty);
 }
 
 message Empty {}
 
-message Event {
+message MessageEvent {
     string eventType = 1;
-    
+    Message payload = 2;
+}
+
+message Message {
+    string from_user = 1;
+    string to_user = 2;
+    string content = 3;
+    google.protobuf.Timestamp sended_at = 4;
 }
