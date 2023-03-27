@@ -41,7 +41,7 @@ service AuthService {
 }
 
 message MeRequest {
-    string accessToken = 1;
+    string access_token = 1;
 }
 
 message AuthRequest {
@@ -68,6 +68,6 @@ message FindUsersResponse {
 message User {
     bytes id = 1;
     string login = 2;
-    string password = 3;
+    string password = 3 [json_name = "-"];
     int64 created_at = 4;
 }
